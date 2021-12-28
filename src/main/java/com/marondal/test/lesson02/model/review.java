@@ -4,14 +4,22 @@ import java.util.Date;
 
 public class review {
 
+	private int id;
 	private String store;
 	private String phoneNumber;
 	private String address;
 	private String businessNumber;
 	private String introduce;
 	private Date createdAt;
+	private Date updatedAt;
 	
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getStore() {
 		return store;
 	}
@@ -54,5 +62,4 @@ public class review {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	private Date updatedAt;
 }
