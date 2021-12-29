@@ -1,5 +1,7 @@
 package com.marondal.test.lesson03.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,14 @@ public class realEstateBO {
 		
 		
 	}
+	
+	public List<realEstate> getRentPrice(int rentPrice) {
+		return realEstateDAO.selectRentPrice(rentPrice);
+	}
 
+	public List<realEstate> getAreaPrice(int area, int price) {
+		return realEstateDAO.selectAreaPrice(area, price);
+	}
+	
+	
 }

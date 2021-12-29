@@ -3,26 +3,66 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.marondal.test.lesson02.dao.realEstateDAO">
- <select id="selectRealEstate" resultType="com.marondal.test.lesson03.modal.realEstate">
- 
- 	SELECT 
- 		`id`
- 		,`realtorId`
- 		,`address`
- 		,`area`
- 		,`type`
- 		,`price`
- 		,`rentPrice`
- 		,`createdAt`
- 		,`updatedAt`
- 	FROM
- 		`real_estate`
- 	WHERE
- 		`id`=#{id}
- 
- 
- </select>
+ <mapper namespace="com.marondal.test.lesson03.dao.realEstateDAO">
+	 <select id="selectRealEstate" resultType="com.marondal.test.lesson03.modal.realEstate" parameterType="int">
+	 
+	 	SELECT 
+	 		`id`
+	 		,`realtorId`
+	 		,`address`
+	 		,`area`
+	 		,`type`
+	 		,`price`
+	 		,`rentPrice`
+	 		,`createdAt`
+	 		,`updatedAt`
+	 	FROM
+	 		`real_estate`
+	 	WHERE
+	 		
+	 		`id`=#{id}
+	
+	 </select>
+	 <select id="selectRentPrice" resultType="com.marondal.test.lesson03.modal.realEstate" parameterType="int">
+	 
+	 	SELECT 
+	 		`id`
+	 		,`realtorId`
+	 		,`address`
+	 		,`area`
+	 		,`type`
+	 		,`price`
+	 		,`rentPrice`
+	 		,`createdAt`
+	 		,`updatedAt`
+	 	FROM
+	 		`real_estate`
+	 	WHERE
+    <![CDATA[ rentPrice < #{rentPrice} ]]>
+
+	 </select>
+	 <select id="selectAreaPrice" resultType="com.marondal.test.lesson03.modal.realEstate" parameterType="int">
+	 
+	 	SELECT 
+	 		`id`
+	 		,`realtorId`
+	 		,`address`
+	 		,`area`
+	 		,`type`
+	 		,`price`
+	 		,`rentPrice`
+	 		,`createdAt`
+	 		,`updatedAt`
+	 	FROM
+	 		`real_estate`
+	 	WHERE
+	 		`type`='매매' and
+	 		<![CDATA[ `area`>=#{area} and
+	 		`price`<#{price}
+		]]>
+		ORDER BY `id`;
+	 </select>
  
  
  </mapper>
+ 
