@@ -28,5 +28,21 @@ public class realEstateBO {
 		return realEstateDAO.selectAreaPrice(area, price);
 	}
 	
+	public int addRealEstate(realEstate realEstate) {
+		return realEstateDAO.insertRealEstate(realEstate);
+	}
+	
+	public int insertRealEstate(int realtorId, String address, int area, String type, int price, int rentPrice) {
+		return  realEstateDAO.insertAsField(realtorId, address, area, type, price, rentPrice);
+	}
+	
+	public int changeRealestate(String type, int price) {
+		return realEstateDAO.changeRealEstate(type, price);
+	}
+	
+	public int deleteRealEstate(int id) {
+		return realEstateDAO.delRealEstate(id);
+	}
+	
 	
 }
