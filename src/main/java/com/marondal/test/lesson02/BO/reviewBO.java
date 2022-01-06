@@ -1,4 +1,4 @@
-package com.marondal.test.lesson02.bo;
+package com.marondal.test.lesson02.BO;
 
 import java.util.List;
 
