@@ -6,13 +6,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.marondal.test.lesson05.bo.weatherhistoryBO;
+import com.marondal.test.lesson05.model.weatherhistory;
 
 @Controller
 public class lesson05Controller {
-
+	@Autowired
+	private weatherhistoryBO weatherhistoryBO;
+	
 	@GetMapping("/lesson05/test01")
 	public String test01() {
 		return "lesson05/test01";
@@ -178,5 +185,31 @@ public class lesson05Controller {
 		model.addAttribute("members",members);
 		return "lesson05/test06";
 	}
+	@GetMapping("/lesson05/test07")
+	public String test07(Model model) {
+		
+		List<weatherhistory> weatherhistory = weatherhistoryBO.selectWeatherhistoryBO();
+		
+		model.addAttribute("weatherhistory",weatherhistory);
+		return "lesson05/test07";
+	}
+	@GetMapping("/lesson05/test08")
+	public String test08(Model model) {
+		
+		
+		return "lesson05/test08";
+	}
 	
+	@GetMapping("/lesson05/add_weather")
+	public int test08(@RequestParam("date")Date date,
+			@RequestParam("weather")String weather,
+			@RequestParam("temperatures")double temperatures,
+			@RequestParam("precipitation")double precipitation,
+			@RequestParam("microDust")String microDust,
+			@RequestParam("windSpeed")double windSpeed
+			
+			) {
+		int count= weatherhistoryBO.insertWeatherBO(date, weather, temperatures, precipitation, microDust, windSpeed);
+		return count;
+	}
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.marondal.test.lesson05.dao.weatherhistoryDAO">
+ <select id="selectWeatherhistory" resultType="com.marondal.test.lesson05.model.weatherhistory">
+ SELECT
+ 	`date`
+ 	,`weather`
+ 	,`temperatures`
+ 	,`precipitation`
+ 	,`microDust`
+ 	,`windSpeed`
+ 	,`createdAt`
+ 	,`updatedAt`
+ FROM
+ 	`weatherhistory`
+ 
+ </select>
+ <insert id="insertWeatherDAO" parameterType="com.marondal.test.lesson05.model.weatherhistory">
+ 	INSERT INTO `weatherhistory`
+ 	(`date`
+ 	,`weather`
+ 	,`temperatures`
+ 	,`precipitation`
+ 	,`microDust`
+ 	,`windSpeed`
+ 	,`createdAt`
+ 	,`updatedAt`
+ 	)	
+ 	VALUES
+ 	(
+ 	`date`
+ 	,`weather`
+ 	,`temperatures`
+ 	,`precipitation`
+ 	,`microDust`
+ 	,`windSpeed`
+ 	,now()
+ 	,now()
+ 	)
+ 
+ </insert>
+ 
+ 
+ 
+ </mapper>

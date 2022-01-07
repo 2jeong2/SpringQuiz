@@ -34,11 +34,23 @@
 		<tr>
 			<td>${status.count }</td>
 			<td>${member.name }</td>
-			<td><c:if test="${fn:contains()}"/></td>
-			
-			<td>${fn:replace(,"시대","-") }</td>
-			<td>${fn:member.email }</td>
-			<td>${member.introduce }</td>
+			<td>
+			<c:choose>
+				<c:when test="${fn:startsWith(member.phoneNumber,'010')}">
+					${member.phoneNumber}
+				</c:when>
+				<c:otherwise>
+					유효하지 않은 전화번호
+				</c:otherwise>
+			</c:choose>
+			</td>
+			<td>${fn:replace(member.nationality,'시대','-')}</td>
+			<td><b>${fn:split(member.email,"@")[0] }</b>@ ${fn:split(member.email,"@")[1] }</td>
+			<td>${fn:substring(member.introduce,0,15) }
+				<c:if test="${fn:length(member.introduce)>15 }">
+					...
+				</c:if>
+			</td>
 		</tr>
 	</c:forEach>
 	</tbody>
