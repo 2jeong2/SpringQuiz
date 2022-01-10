@@ -7,10 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.marondal.test.lesson05.bo.weatherhistoryBO;
 import com.marondal.test.lesson05.model.weatherhistory;
@@ -196,12 +198,21 @@ public class lesson05Controller {
 	@GetMapping("/lesson05/test08")
 	public String test08(Model model) {
 		
+		List<weatherhistory> weatherList= weatherhistoryBO.selectWeatherhistoryBO();
+		model.addAttribute("weatherhistory", weatherList);
 		
 		return "lesson05/test08";
 	}
-	
+	@GetMapping("/lesson05/add_weather_view")
+	public String test08() {
+		return "lesson05/test08";
+	}
+	@ResponseBody
 	@GetMapping("/lesson05/add_weather")
-	public int test08(@RequestParam("date")Date date,
+	
+	public String test08(
+			@DateTimeFormat(pattern="yyyy-MM-dd")
+			@RequestParam("date")Date date,
 			@RequestParam("weather")String weather,
 			@RequestParam("temperatures")double temperatures,
 			@RequestParam("precipitation")double precipitation,
@@ -210,6 +221,12 @@ public class lesson05Controller {
 			
 			) {
 		int count= weatherhistoryBO.insertWeatherBO(date, weather, temperatures, precipitation, microDust, windSpeed);
-		return count;
+		
+		return "redirect:/lesson05/test07";
 	}
+//	public int insertWeatherByObject(weatherhistory weather) {
+//	int count =  weatherhistoryBO.addWeatherByObject(weather);
+//	return "lesson05/test";
+//	}
+	
 }

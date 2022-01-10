@@ -18,45 +18,57 @@
 <body>
 
 <div class="container d-flex">
-	<nav class="nav col-2 bg-info">
-		<div class="logo">
-			<img src="">
-		<ul class="font-weight-bold text-white">
-			<li class="nav-link" >날씨</li>
-			<li class="nav-link">날씨입력</li>
-			<li class="nav-link">테마날씨</li>
-			<li class="nav-link">관측 기후</li>
-			<li class="nav-link"></li>
-			<li class="nav-link"></li>
+		<nav class="bg-info" >
+			<div class="logo d-flex justify-content-center mt-3">
+				<img class="logo-image mr-2" width="50" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Emblem_of_the_Government_of_the_Republic_of_Korea.svg/800px-Emblem_of_the_Government_of_the_Republic_of_Korea.svg.png" >
+				<span class="text-white logo-text">기상청</span>
+			</div>
+			
+			<ul class="nav flex-column mt-4">
+				<li class="nav-item"><a href="#" class="nav-link main-link text-white">날씨</a></li>
+				<li class="nav-item"><a href="#" class="nav-link main-link text-white">날씨입력</a></li>
+				<li class="nav-item"><a href="#" class="nav-link main-link text-white">테마날씨</a></li>
+				<li class="nav-item"><a href="#" class="nav-link main-link text-white">관측 기후</a></li>
+			</ul>
+		</nav>
+	
+	
+		<section class="mt-3 ml-5">
 		
-		</ul>
-	</nav>
-	
-	
-	<div class="col-10">
-	
-		<header class="h-30" >
-			<h3>날씨 입력</h3>
-		</header>
-		
-		<form method="get" action="com.marondal.test.lesson05.test08">
-			<section class="  h-70 p-4">
-				<div class="d-flex">
-					<label>날짜</label><input type="text" name="date">
-					<label>날씨</label><input type="text" name="weather">
-					<label>미세먼지</label><input type="text" name="microDust">
-				</div>
+			<header class="" >
+				<h3 class="font-weight-bold">날씨 입력</h3>
+			</header>
+			
+			<form method="post" action="lesson05/add_weather">
 				
-				<div class="d-flex">
-					<label>기온</label><input type="submit" value="C" name="temperatures">
-					<label>강수량</label><input type="submit" value="mm" name="precipitation">
-					<label>풍속</label><input type="submit" value="km/h" name="windSpeed">
-				</div>
-				<button type="button" >저장</button>
-			</section>
-		</form>
-	
-	</div>
+					<div class="d-flex">
+						<label>날짜</label><input type="text" name="date">
+						<label>날씨</label>
+						<select name="weather">
+							<option>맑음</option>
+							<option>흐림</option>
+							<option>구름조금</option>
+							<option>비</option>
+						</select>
+						<label>미세먼지</label>
+						<select name="microDust">
+							<option>좋음</option>
+							<option>보통</option>
+							<option>나쁨</option>
+							<option>최악</option>
+						</select>
+					</div>
+					
+					<div class="d-flex">
+						<label>기온</label><input type="submit" value="${temperatures }°C" name="temperatures">
+						<label>강수량</label><input type="submit" value="mm" name="precipitation">
+						<label>풍속</label><input type="submit" value="km/h" name="windSpeed">
+					</div>
+					<button type="button" class="btn btn-success" >저장</button>
+				
+			</form>
+		
+		</section>
 </div>
 
 </body>

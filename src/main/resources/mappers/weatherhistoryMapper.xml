@@ -18,9 +18,11 @@
  	`weatherhistory`
  
  </select>
- <insert id="insertWeatherDAO" parameterType="com.marondal.test.lesson05.model.weatherhistory">
+ 
+ <insert id="insertWeatherDAO" parameterType="map">
  	INSERT INTO `weatherhistory`
- 	(`date`
+ 	(
+ 	`date`
  	,`weather`
  	,`temperatures`
  	,`precipitation`
@@ -31,12 +33,13 @@
  	)	
  	VALUES
  	(
- 	`date`
- 	,`weather`
- 	,`temperatures`
- 	,`precipitation`
- 	,`microDust`
- 	,`windSpeed`
+ 	
+ 	#{date}
+ 	,#{weather}
+ 	,#{temperatures}
+ 	,#{precipitation}
+ 	,#{microDust}
+ 	,#{windSpeed}
  	,now()
  	,now()
  	)

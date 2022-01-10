@@ -2,9 +2,11 @@ package com.marondal.test.lesson05.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class weatherhistory {
 
-	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	private String weather;
 	private double temperatures;
