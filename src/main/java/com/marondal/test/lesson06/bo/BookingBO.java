@@ -17,7 +17,7 @@ public class BookingBO {
 	public List<Booking> selectBO() {
 		return bookingDao.selectBooking();
 	}
-	public String addBooking(String name, String date, int day, int headcount, String phoneNumber,String state) {
+	public int addBooking(String name, String date, int day, int headcount, String phoneNumber,String state) {
 		return bookingDao.insertBooking(name,date,day,headcount,phoneNumber,"대기중");
 	}
 	

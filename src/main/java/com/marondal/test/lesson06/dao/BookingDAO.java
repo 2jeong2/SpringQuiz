@@ -12,7 +12,7 @@ public interface BookingDAO {
 
 	public List<Booking> selectBooking() ;
 	
-	public String insertBooking(
+	public int insertBooking(
 			@Param("name")String name,
 			@Param("date")String date,
 			@Param("day")int day,
