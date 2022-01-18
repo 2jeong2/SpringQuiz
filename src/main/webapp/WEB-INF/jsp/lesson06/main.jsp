@@ -32,13 +32,40 @@
 </div>
 
 <script>
-	$.ajax({
-		type:"get",
-		url:"/lesson06/lookup",
-		data{"name":name,"phoneNumber":phoneNumber},
+
+	$(document).ready(function(){
 		
+		var isDuplicateName = true;
 		
+		if()
+		
+		$.ajax({
+			type:"get",
+			url:"/lesson06/lookup",
+			data{"name":name,"phoneNumber":phoneNumber},
+			success:Function(data){
+				if(data.result == "fail"){
+					alert("조회된 결과가 없습니다.")
+				}else if(data.result == "success"){
+					
+				alert("이름 : " + booking.name+ "\n"
+						+"인원 : " + booking.headcount + "\n" 
+						+ "상태 : " + booking.state )
+				};
+			}
+			
+			
+			
+		})
 	})
+	//c-pointer/C++,java-  class => 메모리 구조(운영체제)
+	//자료구조 - 트리,트리순회,그래프(깊이,너비 우선탐색)
+	//웹서버 개발tomcat,apache,Django =>네트워크
+	//웹개발=>리눅스-웹 서버 배포=>운영체제
+	//정보처리기사 필기
+	
+	
+	
 	
 
 </script>

@@ -47,15 +47,17 @@
 		</tr>
 	</thead>
 	<tbody>
+	<c:forEach var="Booking" items="${Booking}">
 		<tr>
-			<td>${booking.name }</td>
-			<td>${booking.date }</td>
-			<td>${booking.headcount }</td>
-			<td>${booking.day }</td>
-			<td>${booking.phoneNumber }</td>
-			<td>${booking.state }</td>
+			<td>${Booking.name}</td>
+			<td><fmt:formatDate value="${Booking.date}" pattern="yyyy년 M월 d일"/></td>
+			<td>${Booking.headcount }</td>
+			<td>${Booking.day }</td>
+			<td>${Booking.phoneNumber }</td>
+			<td>${Booking.state }</td>
 			<td></td>
 		</tr>
+	</c:forEach>
 	</tbody>
 	
 </table>

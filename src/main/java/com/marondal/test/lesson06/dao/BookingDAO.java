@@ -1,5 +1,7 @@
 package com.marondal.test.lesson06.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +10,7 @@ import com.marondal.test.lesson06.model.Booking;
 @Repository
 public interface BookingDAO {
 
-	public String selectBooking() ;
+	public List<Booking> selectBooking() ;
 	
 	public String insertBooking(
 			@Param("name")String name,

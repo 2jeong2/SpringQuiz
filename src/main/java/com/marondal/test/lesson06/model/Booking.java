@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Booking {
 
+	private int id;
 	private String name;
 	private int headcount;
 	private int day;
@@ -13,6 +14,12 @@ public class Booking {
 	private Date createdAt;
 	private Date updatedAt;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

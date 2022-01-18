@@ -1,5 +1,7 @@
 package com.marondal.test.lesson06.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ public class BookingBO {
 	@Autowired
 	BookingDAO bookingDao;
 	
-	public String selectBO() {
+	public List<Booking> selectBO() {
 		return bookingDao.selectBooking();
 	}
 	public String addBooking(String name, String date, int day, int headcount, String phoneNumber,String state) {
